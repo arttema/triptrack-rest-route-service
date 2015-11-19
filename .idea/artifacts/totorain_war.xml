@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="totorain:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="totorain-0.1.war">
+      <element id="artifact" artifact-name="totorain:war exploded" />
+    </root>
+  </artifact>
+</component>
