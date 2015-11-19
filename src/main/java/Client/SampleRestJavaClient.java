@@ -4,7 +4,7 @@ public class SampleRestJavaClient
 {
 	public static void main(String[] args)
     {
-    	final String API_KEY = "";		// insert your API key here
+    	final String API_KEY = "1333ecbd-2a86-08a5-7168-d325c905a731";		// insert your API key here
     	
     	// Perform Example Reference Data Request
     	ReferenceDataExample rd = new ReferenceDataExample();
