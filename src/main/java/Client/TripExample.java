@@ -1,6 +1,8 @@
 package Client;
 
 
+import JJPModel.JourneyPlan;
+import com.hacktrain.api.JorneyDetails;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import Common.Utils;
@@ -10,7 +12,14 @@ import JJPModel.TripSummary;
 
 public class TripExample {
 
-	public void Run(String API_KEY, String dataSet, JJPModel.JourneyPlan journeyPlan) 
+    private JorneyDetails res;
+
+    public TripExample(JorneyDetails res) {
+
+        this.res = res;
+    }
+
+    public JorneyDetails Run(String API_KEY, String dataSet, JourneyPlan journeyPlan)
 	{
 		System.out.println();
 		System.out.println("************************************************************************");
@@ -41,9 +50,10 @@ public class TripExample {
 		catch (Exception ex)
 		{
 			System.out.println(ex.getMessage());			
-		}		
-		
-	}
+		}
+
+        return res;
+    }
 	
 	private String MakeRequest(String API_KEY, String dataSet, JJPModel.JourneyPlan journeyPlan) 
 	{			
@@ -142,7 +152,8 @@ public class TripExample {
 			
 			t.setSummary(jsonSummary);
 			t.addStopsFromJSONArray(stops);
-					
+
+            res.setTrip(t);
 			return t;			
 		} 
 		catch (Exception e)

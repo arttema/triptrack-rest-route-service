@@ -1,3 +1,5 @@
 package com.hacktrain;
 
-public interface Application {}
+public interface Application {
+
+}

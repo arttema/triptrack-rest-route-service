@@ -63,6 +63,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
         </dependency>
+        <!--SOAP JAX-WS-->
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -170,6 +175,12 @@
             <artifactId>httpclient</artifactId>
             <version>4.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-mapsengine</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -217,6 +228,27 @@
                 <version>2.7</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.12.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <schemaLanguage>WSDL</schemaLanguage>
+                    <generatePackage>com.hacktrain.soap</generatePackage>
+                    <schemas>
+                        <schema>
+                            <url>http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl</url>
+                        </schema>
+                    </schemas>
                 </configuration>
             </plugin>
         </plugins>

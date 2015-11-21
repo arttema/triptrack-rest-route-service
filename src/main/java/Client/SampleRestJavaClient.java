@@ -1,6 +1,8 @@
 package Client;
 
-public class SampleRestJavaClient 
+import Common.Utils;
+
+public class SampleRestJavaClient
 {
 	public static void main(String[] args)
     {
@@ -12,7 +14,7 @@ public class SampleRestJavaClient
     	
     	// Perform Example Journey (includes example Trip Request)
     	JourneyPlanExample jp = new JourneyPlanExample();
-    	jp.Run(API_KEY);
+    	jp.Run(API_KEY, "OXF", "PAD", Utils.GetCurrentDateTime());
     	
     	// Perform Example Stop Timetable Request
     	StopTimetableExample stopTimetable = new StopTimetableExample();
