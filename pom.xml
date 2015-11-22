@@ -220,6 +220,20 @@
                             <goal>sources</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>copy</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.github.jsimone</groupId>
+                                    <artifactId>webapp-runner</artifactId>
+                                    <version>8.0.24.0</version>
+                                    <destFileName>webapp-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -241,15 +255,15 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <schemaLanguage>WSDL</schemaLanguage>
-                    <generatePackage>com.hacktrain.soap</generatePackage>
-                    <schemas>
-                        <schema>
-                            <url>http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl</url>
-                        </schema>
-                    </schemas>
-                </configuration>
+                <!--<configuration>-->
+                    <!--<schemaLanguage>WSDL</schemaLanguage>-->
+                    <!--<generatePackage>com.hacktrain.soap</generatePackage>-->
+                    <!--<schemas>-->
+                        <!--<schema>-->
+                            <!--<url>http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl</url>-->
+                        <!--</schema>-->
+                    <!--</schemas>-->
+                <!--</configuration>-->
             </plugin>
         </plugins>
     </build>
