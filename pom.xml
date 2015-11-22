@@ -180,7 +180,11 @@
             <artifactId>google-api-services-mapsengine</artifactId>
             <version>LATEST</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-runner</artifactId>
+            <version>8.1.16.v20140903</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
