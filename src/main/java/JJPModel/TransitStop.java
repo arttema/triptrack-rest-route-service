@@ -1,10 +1,13 @@
 package JJPModel;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.json.JSONObject;
 
 public class TransitStop extends Location
 {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
 	private String m_stopCode;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
 	private String m_stopUid;		
 	
 	public String getStopCode()

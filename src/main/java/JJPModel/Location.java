@@ -1,12 +1,17 @@
 package JJPModel;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 // For historical reasons, the JJP BaseLocation does not include Position and Description,
 // but these attributes do appear on all types of location (TransitStop, GeoLocation, Landmark),
 // so we'll include them here on our own Location base class.   
 public abstract class Location 
 {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
 	private String m_dataSet;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
 	private GeoPosition m_position;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
 	private String m_description;
 
 	public String getDescription() 

@@ -1,13 +1,19 @@
 package JJPModel;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import java.util.Date;
 
 
 public class TripStop 
 {
 	private TransitStop m_transitStop;
-	private Date m_arriveTime;
+    @JsonInclude(Include.NON_NULL)
+    private Date m_arriveTime;
+    @JsonInclude(Include.NON_NULL)
 	private Date m_departTime;
+    @JsonInclude(Include.NON_NULL)
 	private String m_sequenceNumber;
 
 	public void setTransitStop(TransitStop transitLocation) 

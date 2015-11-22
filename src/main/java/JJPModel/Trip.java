@@ -2,6 +2,7 @@ package JJPModel;
 
 import java.util.Vector;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -10,7 +11,8 @@ import Common.Utils;
 
 public class Trip 
 {
-	private TripSummary m_summary;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private TripSummary m_summary;
 	private Vector<TripStop> m_stops;
 	
 	public Trip()
@@ -18,7 +20,13 @@ public class Trip
 		m_stops = new Vector<TripStop>();
 		m_summary = null;
 	}
-	
+
+    public void resetSummary(){m_summary = null;
+    for(TripStop s : m_stops){
+        s.getTransitStop().setDataSet(null);
+        s.getTransitStop().setStopUid(null);
+    }
+    }
 	public void setSummary(TripSummary summary) 
 	{
 		m_summary = summary;

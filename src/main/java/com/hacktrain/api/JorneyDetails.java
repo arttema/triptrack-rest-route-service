@@ -10,6 +10,8 @@ public class JorneyDetails {
     public String strOrigin;
     public String strDestination;
     public String provider;
+    public int distance;
+    public int citiesCrossed;
 
     public Date departTime;
     public Date arriveTime;
