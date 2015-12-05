@@ -1,8 +1,6 @@
 package com.hacktrain.api;
 
 import Client.JourneyPlanExample;
-import Client.TimetableExample;
-import Common.Utils;
 import JJPModel.GeoPosition;
 import JJPModel.TripStop;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,15 +9,12 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Vector;
 
 @Controller
 class StationController {
     @Value("${silversearch.apikey}")
     private String apiKey;
-    private static final String API_KEY = "1333ecbd-2a86-08a5-7168-d325c905a731";
 
 
     @RequestMapping(value = "api/train", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -30,7 +25,7 @@ class StationController {
                                   @RequestParam(value = "departTime") final String departTime) {
         JourneyPlanExample b = new JourneyPlanExample();
 //        JorneyDetails res = b.Run(API_KEY, "OXF", "PAD", "2015-11-21T08:53");
-        JorneyDetails res = b.Run(API_KEY, from, to, departTime);
+        JorneyDetails res = b.Run(apiKey, from, to, departTime);
         res.getTrip();
 
         Vector<TripStop> stops = res.getTrip().getStops();
@@ -41,13 +36,6 @@ class StationController {
 
         res.citiesCrossed = res.getTrip().getStops().size();
         return res;
-    }
-
-    public static void main(String[] args) {
-
-        JourneyPlanExample b = new JourneyPlanExample();
-
-        b.Run(API_KEY,"OXF", "PAD", "2015-11-21T08:53");
     }
 
     public static double distance(double lat1, double lat2, double lon1,
